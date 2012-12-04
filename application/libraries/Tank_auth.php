@@ -378,7 +378,7 @@ class Tank_auth
 			$hasher = new PasswordHash(
 					$this->ci->config->item('phpass_hash_strength', 'tank_auth'),
 					$this->ci->config->item('phpass_hash_portable', 'tank_auth'));
-			if ($hasher->CheckPassword($old_pass, $user->password)) {			// success
+			if ($hasher->CheckPassword($old_pass, $user->password) == $user->password) {	// success
 
 				// Hash new password using phpass
 				$hashed_password = $hasher->HashPassword($new_pass);
